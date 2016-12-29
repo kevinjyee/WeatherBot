@@ -35,6 +35,7 @@ var read = function (sender, message, reply) {
 	if (message === 'hello') {
 		// Let's reply back hello
 		message = 'Hello yourself! I am a chat bot. '
+		console.log("Hello called");
 		reply(sender, message)
 	} else {
 		// Let's find the user
