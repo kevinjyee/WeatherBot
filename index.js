@@ -22,7 +22,7 @@ app.use(bodyParser.json())
 
 // index page
 app.get('/', function (req, res) {
-  res.send('hello world i am a chat bot')
+  res.send('hello world i am a chat bot please try me')
 })
 
 // for facebook to verify

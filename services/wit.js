@@ -89,7 +89,8 @@ var actions = {
 		 		})
 		 }
 
-		context.forecast = 'Sunny'
+		//context.forecast = 'Sunny'
+
 
 		cb(context)
 	},
