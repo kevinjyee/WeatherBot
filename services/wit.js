@@ -4,7 +4,7 @@ var Config = require('../config')
 var FB = require('../connectors/facebook')
 var Wit = require('node-wit').Wit
 var request = require('request')
-var lines = require('pickuplines')
+var lines = require('./pickuplines')
 
 var firstEntityValue = function (entities, entity) {
 	var val = entities && entities[entity] &&
