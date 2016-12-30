@@ -82,9 +82,12 @@ var actions = {
 		 if (context.loc) {
 		 	getWeather(context.loc)
 		 		.then(function (forecast) {
+		 			console.log("Reached this point correct")
 		 			context.forecast = forecast
+					console.log("Forecast is " + forecast)
 		 		})
 		 		.catch(function (err) {
+		 			console.log("Some error in this statement :(")
 		 			console.log(err)
 		 		})
 		 }
