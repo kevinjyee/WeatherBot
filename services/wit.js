@@ -4,7 +4,7 @@ var Config = require('../config')
 var FB = require('../connectors/facebook')
 var Wit = require('node-wit').Wit
 var request = require('request')
-
+var lines = require('./services/pickuplines')
 
 var firstEntityValue = function (entities, entity) {
 	var val = entities && entities[entity] &&
@@ -175,13 +175,13 @@ var getPickup = function(keyword){
 
 	console.log("getPickup reached")
 	console.log("the keyword is" + keyword)
-    var arrayLength = pickupLines.length;
+    var arrayLength = lines.pickupLines.length;
     for (var i = 0; i < arrayLength; i++) {
-        if(pickupLines[i].includes(keyword)){
-        	return pickupLines[i];
+        if(lines.pickupLines[i].includes(keyword)){
+        	return lines.pickupLines[i];
 		}
     }
-    return pickupLines[Math.floor(Math.random() * pickupLines.length)]
+    return lines.pickupLines[Math.floor(Math.random() * lines.pickupLines.length)]
 
 }
 
