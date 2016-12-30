@@ -62,7 +62,9 @@ var actions = {
 		}
 		else
 		{
+			context.verbage = "";
 			console.log("Could not find keyword");
+			keywordnotfound = true;
 
 		}
 
