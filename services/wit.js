@@ -130,9 +130,10 @@ var getWeather = function (location) {
 		request(url, function (error, response, body) {
 		    if (!error && response.statusCode == 200) {
 		    	var jsonData = JSON.parse(body)
-		    	var forecast = jsonData.query.results.channel.item.forecast[0].text
+				console.log("Got to this point")
+					//var forecast = jsonData.query.results.channel.item.forecast[0].text
 		      console.log('WEATHER API SAYS....', jsonData.query.results.channel.item.forecast[0].text)
-		      return forecast
+		      return jsonData.query.results.channel.item.forecast[0].text;
 		    }
 			})
 	})
