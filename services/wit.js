@@ -111,20 +111,16 @@ var actions = {
 
     ['fetch-pickup'](sessionId, context, cb) {
         // Here we can place an API call to a weather service
-        if (context.verbage) {
-            getPickup(context.verbage)
-                .then(function (joke) {
-                    console.log("Reached this point correct")
-                    context.joke = joke
-                    console.log("Joke is " + joke)
-                })
-                .catch(function (err) {
-                    console.log("Some error in this statement")
-                    console.log(err)
-                })
+        console.log("getPickup reached")
+        console.log("the keyword is" + keyword)
+        var arrayLength = lines.pickupLines.length;
+        context.joke = lines.pickupLines[Math.floor(Math.random() * lines.pickupLines.length)]
+        for (var i = 0; i < arrayLength; i++) {
+            if(lines.pickupLines[i].includes(keyword)){
+                context.joke = lines.pickupLines[i];
+                break;
+            }
         }
-
-        context.joke = "You're Beautiful";
 
 
         cb(context)
