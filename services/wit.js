@@ -6,6 +6,8 @@ var Wit = require('node-wit').Wit
 var request = require('request')
 var lines = require('./pickuplines')
 
+var keywordnotfound = false;
+
 var firstEntityValue = function (entities, entity) {
 	var val = entities && entities[entity] &&
 		Array.isArray(entities[entity]) &&
@@ -42,6 +44,7 @@ var actions = {
 		
 	},
 
+
 	merge(sessionId, context, entities, message, cb) {
 		// Reset the weather story
 		delete context.forecast
@@ -60,7 +63,7 @@ var actions = {
 		else
 		{
 			console.log("Could not find keyword");
-			context.verbage = "love"
+
 		}
 
 		// Reset the cutepics story
@@ -115,12 +118,16 @@ var actions = {
 		var keyword = context.verbage;
         console.log("the keyword is" + keyword)
         var arrayLength = lines.pickupLines.length;
-        context.joke = lines.pickupLines[Math.floor(Math.random() * lines.pickupLines.length)]
+        if(keywordnotfound) {
+            context.joke = lines.pickupLines[Math.floor(Math.random() * lines.pickupLines.length)]
+        }
+        else{
         for (var i = 0; i < arrayLength; i++) {
-            if(lines.pickupLines[i].includes(keyword)){
+            if (lines.pickupLines[i].includes(keyword)) {
                 context.joke = lines.pickupLines[i];
                 break;
             }
+        }
         }
 
 
