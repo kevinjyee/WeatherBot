@@ -98,6 +98,27 @@ var actions = {
 		cb(context)
 	},
 
+    ['fetch-pickup'](sessionId, context, cb) {
+        // Here we can place an API call to a weather service
+        if (context.action) {
+            getPickup(context.action)
+                .then(function (joke) {
+                    console.log("Reached this point correct")
+                    context.joke = joke
+                    console.log("Joke is " + joke)
+                })
+                .catch(function (err) {
+                    console.log("Some error in this statement")
+                    console.log(err)
+                })
+        }
+
+        context.joke = "You're Beautiful";
+
+
+        cb(context)
+    },
+
 	['fetch-pics'](sessionId, context, cb) {
 		var wantedPics = allPics[context.cat || 'default']
 		context.pics = wantedPics[Math.floor(Math.random() * wantedPics.length)]
@@ -137,6 +158,19 @@ var getWeather = function (location) {
 		    }
 			})
 	})
+}
+
+var getPickup = function(keyword){
+
+
+    var arrayLength = pickupLines.length;
+    for (var i = 0; i < arrayLength; i++) {
+        if(pickupLines[i].includes(keyword)){
+        	return pickupLines[i];
+		}
+    }
+    return pickupLines[Math.floor(Math.random() * pickupLines.length)]
+
 }
 
 // CHECK IF URL IS AN IMAGE FILE
