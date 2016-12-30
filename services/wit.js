@@ -162,7 +162,7 @@ var getWeather = function (location) {
 
 var getPickup = function(keyword){
 
-
+	console.log("getPickup reached")
     var arrayLength = pickupLines.length;
     for (var i = 0; i < arrayLength; i++) {
         if(pickupLines[i].includes(keyword)){
