@@ -52,6 +52,12 @@ var actions = {
 			context.loc = loc
 		}
 
+		delete context.joke
+		var action = firstEntityValue(entities,'action')
+		if(action){
+			context.action = action
+		}
+
 		// Reset the cutepics story
 		delete context.pics
 
@@ -163,6 +169,7 @@ var getWeather = function (location) {
 var getPickup = function(keyword){
 
 	console.log("getPickup reached")
+	console.log("the keyword is" + keyword)
     var arrayLength = pickupLines.length;
     for (var i = 0; i < arrayLength; i++) {
         if(pickupLines[i].includes(keyword)){
