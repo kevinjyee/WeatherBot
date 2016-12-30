@@ -53,14 +53,14 @@ var actions = {
 		}
 
 		delete context.joke
-		var action = firstEntityValue(entities,'action')
-		if(action){
-			context.action = action
+		var verbage = firstEntityValue(entities,'verbage')
+		if(verbage){
+			context.verbage = verbage
 		}
 		else
 		{
 			console.log("Could not find keyword");
-			context.action = "love"
+			context.verbage = "love"
 		}
 
 		// Reset the cutepics story
@@ -111,8 +111,8 @@ var actions = {
 
     ['fetch-pickup'](sessionId, context, cb) {
         // Here we can place an API call to a weather service
-        if (context.action) {
-            getPickup(context.action)
+        if (context.verbage) {
+            getPickup(context.verbage)
                 .then(function (joke) {
                     console.log("Reached this point correct")
                     context.joke = joke
