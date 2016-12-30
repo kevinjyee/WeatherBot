@@ -122,6 +122,7 @@ var actions = {
         var arrayLength = lines.pickupLines.length;
         if(keywordnotfound) {
             context.joke = lines.pickupLines[Math.floor(Math.random() * lines.pickupLines.length)]
+			keywordnotfound =false;
         }
         else{
         for (var i = 0; i < arrayLength; i++) {
