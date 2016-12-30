@@ -57,6 +57,11 @@ var actions = {
 		if(action){
 			context.action = action
 		}
+		else
+		{
+			console.log("Could not find keyword");
+			context.action = "love"
+		}
 
 		// Reset the cutepics story
 		delete context.pics
